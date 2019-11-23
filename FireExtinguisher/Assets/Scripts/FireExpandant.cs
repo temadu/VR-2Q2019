@@ -24,11 +24,10 @@ public class FireExpandant : MonoBehaviour{
                     item.gameObject.GetInstanceID() != transform.parent.gameObject.GetInstanceID() && 
                     item.gameObject.tag == "Flamable" &&
                     item.transform.childCount == 0
-                    ){
-                        Debug.Log(item.name + item.GetInstanceID());
-                        Debug.Log(transform.parent.gameObject.name + transform.parent.gameObject.GetInstanceID());
+                    ){                
                     GameObject newFire = Instantiate(this.gameObject, item.gameObject.transform);
-                    newFire.transform.position = item.transform.position;
+                    float height = item.GetComponent<MeshCollider>().bounds.size.y;
+                    newFire.transform.position = item.transform.position + new Vector3(0, height + 0.2F, 0);
                 }
             }
         }    
