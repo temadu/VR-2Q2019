@@ -5,11 +5,13 @@ using UnityEngine;
 public class FireExpandant : MonoBehaviour{
     private float maybeFire;
 
+    public float radiusExpasion;
+
     // Start is called before the first frame update
     void Start(){
 
         maybeFire = 100; // 2 Seconds
-
+        radiusExpasion = 4;
     }
 
     // Update is called once per frame
@@ -18,7 +20,7 @@ public class FireExpandant : MonoBehaviour{
             maybeFire--;
         }else{
             maybeFire = 100;
-            Collider[] posibleOnFireObjects = Physics.OverlapSphere( transform.position , 2F);
+            Collider[] posibleOnFireObjects = Physics.OverlapSphere( transform.position , radiusExpasion);
             foreach (var item in posibleOnFireObjects){
                 if( Random.Range(0,3) > 0  && 
                     item.gameObject.GetInstanceID() != transform.parent.gameObject.GetInstanceID() && 
