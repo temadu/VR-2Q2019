@@ -12,7 +12,7 @@ public class SmokeReleaser : MonoBehaviour
     }
 
     void Update() {
-      if(Input.GetMouseButton(0)){
+      if(Input.GetMouseButton(0)|| OVRInput.Get(OVRInput.RawButton.LIndexTrigger)){
         particleSystem.Play();
       } else {
         particleSystem.Stop();
