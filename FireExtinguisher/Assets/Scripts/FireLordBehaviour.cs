@@ -24,7 +24,7 @@ public class FireLordBehaviour : MonoBehaviour
         }
         else if (!once) {
             once = true;
-            GameObject[] flamables = GameObject.FindGameObjectsWithTag("Fire");
+            GameObject[] flamables = GameObject.FindGameObjectsWithTag("Flamable");
             int rand = Random.Range(0, flamables.Length);
             createdFire = new List<GameObject>();
             createdFire.Add(Instantiate(fire, flamables[rand].transform));
