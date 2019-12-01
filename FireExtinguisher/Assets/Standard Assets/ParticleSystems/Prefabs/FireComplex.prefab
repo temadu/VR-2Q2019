@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 11400004}
   - component: {fileID: -5153172806341795737}
   - component: {fileID: 6110991518765234592}
+  - component: {fileID: -105859253315082401}
   m_Layer: 0
   m_Name: FireComplex
   m_TagString: Fire
@@ -225,6 +226,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &-105859253315082401
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
