@@ -18,17 +18,14 @@ public class testsc2 : MonoBehaviour
 
     void OnParticleTrigger()
     {
-        Debug.Log("asd");
         Destroy(gameObject);
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("asd");
         Destroy(gameObject);
     }
     void OnParticleCollision(GameObject other)
     {
-        Debug.Log("asd");
         Destroy(gameObject);
     }
 }
