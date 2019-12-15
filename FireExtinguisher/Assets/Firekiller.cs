@@ -13,7 +13,7 @@ public class Firekiller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) || OVRInput.Get(OVRInput.RawButton.LIndexTrigger))
+        if (Input.GetMouseButton(0) || OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
         {
             RaycastHit hit;
             if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit))
