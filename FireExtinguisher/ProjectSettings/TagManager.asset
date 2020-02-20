@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fire
   - Flamable
+  - Flammable
+  - FlammableCubicle
+  - FlammableLiving
   layers:
   - Default
   - TransparentFX
