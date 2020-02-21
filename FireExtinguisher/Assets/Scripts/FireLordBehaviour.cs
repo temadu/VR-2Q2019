@@ -21,7 +21,6 @@ public class FireLordBehaviour : MonoBehaviour
       if(flammableTag != null && firePrefab != null && !once 
         && GameObject.FindGameObjectsWithTag("Fire").Length == 0){
         once = true;
-        Debug.Log("CUALQUINAS");
         Invoke("StartFires", initialLag);
       }
     }

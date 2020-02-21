@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-      // GameObject player = GameObject.Find("OVRCameraRig");
-      GameObject player = GameObject.Find("RigidBodyFPSController");
+      GameObject player = GameObject.Find("OVRCameraRig");
+      // GameObject player = GameObject.Find("RigidBodyFPSController");
       if(Random.Range(0.0f, 1.0f) > 0.5f){
         this.gameObject.AddComponent<FireLordBehaviour>().Initialize("FlammableLiving", firePrefab);
         player.transform.position = new Vector3(7.67f,0.65f,-1.08f);

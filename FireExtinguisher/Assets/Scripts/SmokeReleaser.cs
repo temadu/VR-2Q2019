@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class SmokeReleaser : MonoBehaviour
 {
-    ParticleSystem particleSystem;
+  ParticleSystem particleSystem;
+  private AudioSource audio;
 
-    public float raycastLength;
+
+  public float raycastLength;
 
     void Start() {
-         particleSystem = GetComponent<ParticleSystem>();
-         particleSystem.Stop();
-         raycastLength = 150f;
+      particleSystem = GetComponent<ParticleSystem>();
+      particleSystem.Stop();
+      audio = GetComponent<AudioSource>();
+      audio.Play();
+      raycastLength = 150f;
     }
 
     void Update() {
@@ -22,14 +26,16 @@ public class SmokeReleaser : MonoBehaviour
         {
           if (hit.collider.tag == "Fire")
           {
-            Debug.Log("FIREKILLER");
+            // Debug.Log("FIREKILLER");
             hit.collider.GetComponent<FireExpandant>().applyDamage();
             // Destroy(hit.collider.gameObject);
           }
         }
         particleSystem.Play();
+        audio.UnPause();
       } else {
         particleSystem.Stop();
+        audio.Pause();
       }
     }
 }

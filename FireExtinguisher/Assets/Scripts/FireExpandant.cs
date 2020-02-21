@@ -7,27 +7,26 @@ public class FireExpandant : MonoBehaviour
     private float startFireSeconds;
     private float startFireTimer = 0f;
 
-    public float radiusExpasion;
+    private float radiusExpasion;
 
-    public Vector3 originalScale;
-    public float life;
+    private Vector3 originalScale;
+    private float life = 1f;
 
     private float secondsToKill;
     private AudioSource audio;
 
     // Start is called before the first frame update
     void Start(){
-        startFireSeconds = 5f; // 2 Seconds
-        radiusExpasion = 2.5f;
         originalScale = this.transform.localScale;
-        life = 1f;
-        secondsToKill = 1f;
+        radiusExpasion = 3f;
+        startFireSeconds = 5f; // 2 Seconds
+        secondsToKill = 2f;
         audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void FixedUpdate(){
-        if (startFireTimer > startFireSeconds){
+        if (startFireTimer >= startFireSeconds + (GameObject.FindGameObjectsWithTag("Fire").Length * 3)){
             Collider[] posibleOnFireObjects = Physics.OverlapSphere(transform.position, radiusExpasion);
             foreach (var item in posibleOnFireObjects) {
                 if (Random.Range(0, 6) > 1 &&
@@ -37,7 +36,7 @@ public class FireExpandant : MonoBehaviour
                     ) {
                     GameObject newFire = Instantiate(this.gameObject, item.gameObject.transform);
                     float height = item.GetComponent<MeshCollider>().bounds.size.y;
-                    newFire.transform.position = item.transform.position + new Vector3(0, height + 0.2F, 0);
+                    newFire.transform.position = item.transform.position + new Vector3(0, height * 0.8f + 0.2F, 0);
                     newFire.transform.localScale = new Vector3(1f,1f,1f);
                 }
             }
@@ -47,7 +46,7 @@ public class FireExpandant : MonoBehaviour
 
         this.transform.localScale = originalScale * life;
         this.audio.volume = life;
-        if(life <= 0.3){
+        if(life <= 0.2){
           this.audio.volume = 0;
           Destroy(this.gameObject);
         }
